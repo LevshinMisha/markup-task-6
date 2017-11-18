@@ -1,0 +1,217 @@
+main
+{
+    display: grid;
+    width: 1400px;
+    grid-template-areas:    "q n n d e"
+                            "l s s s e"
+                            "z b b b e"
+                            "z v t w e";
+    grid-template-columns: 175px 1fr 1fr 1fr 175px;
+    margin: auto;
+}
+
+
+
+.logo
+{
+    grid-area: l;
+    padding: 0;
+}
+
+.logo h1
+{
+    margin: 25px 0;
+    font-size: 50px;
+}
+
+.logo h1:first-letter
+{
+    color: red;
+}
+
+.news
+{
+    grid-area: n;
+}
+
+.news ul
+{
+    padding: 0;
+    margin-top: 0;
+}
+
+.news > a,
+.drive > a,
+section[class*='column'] article > a:first-child
+{
+    font-size: 140%;
+    margin: 5px 0;
+}
+
+.drive
+{
+    text-align: center;
+    grid-area: d;
+}
+
+.search
+{
+    grid-area: s;
+}
+
+.banner
+{
+    text-align: center;
+    font-size: 250%;
+    grid-area: b;
+}
+
+.column-1
+{
+    grid-area: v;
+}
+
+.column-2
+{
+    grid-area: t;
+}
+
+.column-3
+{
+    grid-area: w;
+}
+
+section
+{
+    display: inline-block;
+    padding: 15px;
+}
+
+.link
+{
+    color: rgba(0, 0, 255, 1);
+    padding-right: 10px;
+    display: inline-block;
+}
+
+.news > .link + .link
+{
+    color: rgba(0, 0, 255, .5);
+}
+
+a
+{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover
+{
+    color: darkred !important;
+}
+
+.shadow,
+.money :last-child,
+.news > span,
+.tv :last-child,
+.city a,
+.column-3 > :last-child,
+.auto span
+{
+    color: grey;
+}
+
+.money
+{
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.money :last-child
+{
+    padding: 0 5px;
+}
+
+.money :last-child::before
+{
+    content: '-';
+}
+
+figure
+{
+    margin: 0;
+}
+
+figure img
+{
+    width: 100px;
+}
+
+.search input
+{
+    height: 30px;
+    outline: none;
+    padding-left: 5px;
+    margin: 10px 0;
+}
+
+.search button
+{
+    border: 0;
+    height: 30px;
+    box-sizing: border-box;
+    display: inline-block;
+    background-color: #ffcc00;
+    width: 75px;
+    margin-left: -4px;
+    cursor: pointer;
+    outline: none;
+}
+
+.search input,
+.banner aside
+{
+    width: 90%;
+    border: 2px solid #ffcc00;
+    box-sizing: border-box;
+}
+
+.visited
+{
+    margin: 5px 0;
+}
+
+.visited :first-child
+{
+    font-weight: 600;
+}
+
+.small-img
+{
+    width: 16px;
+    margin-right: 10px;
+}
+
+section article
+{
+    margin-bottom: 20px;
+}
+
+.city
+{
+    position: absolute;
+    top: 15px;
+    left: 50px;
+}
+
+.auto
+{
+    max-height: 200px;
+    overflow-y: scroll;
+    scrollbar-darkshadow-color: grey;
+}
+
+.auto span
+{
+    margin-left: 10px;
+}
