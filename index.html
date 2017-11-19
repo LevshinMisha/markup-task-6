@@ -9,9 +9,39 @@
     <aside class="city">
         <a href="#">➤ Екатеринбург</a>
     </aside>
+
+    <label for="show-settings">Настройки</label>
+
+    <input id="show-settings" type="checkbox">
+    <input id="show-visited" type="checkbox" name="123">
+    <input id="show-humor" type="checkbox">
+    <input id="show-tv" type="checkbox">
+    <input id="show-auto" type="checkbox">
+    <input id="show-weather" type="checkbox">
+    <input id="show-auto2" type="checkbox">
+    <input id="show-map" type="checkbox">
+    <input id="show-aphisha" type="checkbox">
+
+    <input id="humor-1" type="radio" name="humor" checked>
+    <input id="humor-2" type="radio" name="humor">
+    <input id="humor-3" type="radio" name="humor">
+    <input id="humor-4" type="radio" name="humor">
+    <input id="humor-5" type="radio" name="humor">
+
     <main>
         <section class="logo">
             <h1>Яндекс</h1>
+        </section>
+
+        <section class="settings">
+            <label for="show-visited">Посещаемое</label>
+            <label for="show-humor">Анекдоты</label>
+            <label for="show-tv">TV</label>
+            <label for="show-auto">Автомобильные новости</label>
+            <label for="show-weather">Погода</label>
+            <label for="show-auto2">Пробки</label>
+            <label for="show-map">Карта</label>
+            <label for="show-aphisha">Афиша</label>
         </section>
 
         <section class="news">
@@ -31,17 +61,17 @@
                     Билли опоздал на свою свадьбу.</a></li>
             </ul>
             <div class="money">
-                <a href="#" title="Курс от 16/11">USD ЦБ </a>
+                <a href="#" title="Курс от 16/11">USD ЦБ</a>
                 <span>59,99</span>
                 <span>0,26</span>
             </div>
             <div class="money">
-                <a href="#" title="Курс от 16/11">EUR ЦБ </a>
+                <a href="#" title="Курс от 16/11">EUR ЦБ</a>
                 <span>70,70</span>
                 <span>0,47</span>
             </div>
             <div class="money">
-                <a href="#" title="Курс от 16/11">НЕФТЬ </a>
+                <a href="#" title="Курс от 16/11">НЕФТЬ</a>
                 <span>61,78</span>
                 <span>0,10%</span>
             </div>
@@ -50,20 +80,20 @@
         <section class="drive">
             <a href="http://drive.google.com" class="link">ВСЕМ Яндекс диск:</a><br>
             <figure>
-                <a href="http://drive.google.com"><img src="drive.jpg"></a>
+                <a href="http://drive.google.com"><img src="drive.jpg" alt="drive"></a>
                 <figcaption>Только сегодня и только сейчас, атракцион невиданной щедрости.</figcaption>
             </figure>
         </section>
 
         <section class="search">
-            <a href="#" class="link">Видео </a>
-            <a href="#" class="link">Картинки </a>
-            <a href="#" class="link">Новости </a>
-            <a href="#" class="link">Карты </a>
-            <a href="#" class="link">Маркет </a>
-            <a href="#" class="link">Переводчик </a>
-            <a href="#" class="link">Музыка </a>
-            <a href="#" class="link">ещё </a>
+            <a href="#" class="link">Видео</a>
+            <a href="#" class="link">Картинки</a>
+            <a href="#" class="link">Новости</a>
+            <a href="#" class="link">Карты</a>
+            <a href="#" class="link">Маркет</a>
+            <a href="#" class="link">Переводчик</a>
+            <a href="#" class="link">Музыка</a>
+            <a href="#" class="link">ещё</a>
             <br>
             <input>
             <button>Найти</button>
@@ -74,7 +104,7 @@
         </section>
 
         <section class="banner">
-            <aside>Здесь могла бы быть ваша реклама</aside>
+            <aside><img src="открытие.png" alt="adv"></aside>
         </section>
 
         <section class="column-1">
@@ -98,11 +128,27 @@
                 </div>
             </article>
 
-            <article>
+            <article class="humor-article">
                 <a href="#" class="link">Лучшие анекдоты</a>
-                <div class="humor">- Колобок повесился!</div>
+                <span>- Колобок повесился!</span>
+                <span>
+                    - Ваши родители случано не пекари?<br>
+                    - Нет.<br>
+                    - Тогда почему ты у них такая булочка?<br>
+                    <img src="pickup.jpg" alt="pickup">
+                </span>
+                <span>- Ты кто такой, давай до свидания!</span>
+                <span>
+                    А это даже анекдотом нельзя назвать!
+                    Я(браузер) решил даже не показывать его.
+                </span>
+                <span>Этот анекдот был заблокирован по просьбе роскомнадзора. Это фиаско братан.</span>
                 <br>
-                <a href="#" class="link">⟳ Показать еще</a>
+                <label class="link" for="humor-1">⟳ Показать еще</label>
+                <label class="link" for="humor-2">⟳ Показать еще</label>
+                <label class="link" for="humor-3">⟳ Показать еще</label>
+                <label class="link" for="humor-4">⟳ Показать еще</label>
+                <label class="link" for="humor-5">⟳ Показать еще</label>
             </article>
 
         </section>
@@ -132,7 +178,7 @@
                 </div>
             </article>
 
-            <article>
+            <article class="auto-article">
                 <a href="#" class="link">Автомобильные новости</a>
                 <div class="auto">
                     <a href="#">Ничего не произошло</a><span>00:00</span><br>
@@ -161,7 +207,7 @@
         <section class="column-3">
             <article>
                 <a href="#" class="link">Погода</a>
-                <a href="#"><img src="snow.png" class="small-img">-270 °C</a>
+                <a href="#"><img alt="show weather" src="snow.png" class="small-img">-270 °C</a>
                 <br>
                 <a href="#">Ночь -273</a>,
                 <a href="#">Утро +50</a>
@@ -169,7 +215,7 @@
 
             <article>
                 <a href="#" class="link">Пробки</a>
-                <a href="#"><img src="Circle_Green.png" class="small-img">0 баллов</a>
+                <a href="#"><img alt="green circle" src="Circle_Green.png" class="small-img">0 баллов</a>
                 <br>
                 <span>Ни одна машина не заводится</span>
             </article>

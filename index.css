@@ -1,16 +1,16 @@
+body
+{
+    margin: 0;
+}
+
 main
 {
     display: grid;
     width: 1400px;
-    grid-template-areas:    "q n n d e"
-                            "l s s s e"
-                            "z b b b e"
-                            "z v t w e";
-    grid-template-columns: 175px 1fr 1fr 1fr 175px;
+    grid-template-areas: 'q n n d i' 'l s s s e' 'z b b b e' 'z v t w e';
+    grid-template-columns: 175px 350px 350px 350px 175px;
     margin: auto;
 }
-
-
 
 .logo
 {
@@ -61,8 +61,6 @@ section[class*='column'] article > a:first-child
 
 .banner
 {
-    text-align: center;
-    font-size: 250%;
     grid-area: b;
 }
 
@@ -161,7 +159,7 @@ figure img
     height: 30px;
     box-sizing: border-box;
     display: inline-block;
-    background-color: #ffcc00;
+    background-color: #fc0;
     width: 75px;
     margin-left: -4px;
     cursor: pointer;
@@ -169,10 +167,10 @@ figure img
 }
 
 .search input,
-.banner aside
+.banner aside img
 {
     width: 90%;
-    border: 2px solid #ffcc00;
+    border: 2px solid #fc0;
     box-sizing: border-box;
 }
 
@@ -197,21 +195,167 @@ section article
     margin-bottom: 20px;
 }
 
-.city
-{
-    position: absolute;
-    top: 15px;
-    left: 50px;
-}
-
 .auto
 {
-    max-height: 200px;
-    overflow-y: scroll;
-    scrollbar-darkshadow-color: grey;
+    height: 100%;
+    width: 300px;
+    overflow: auto;
+}
+
+.auto-article
+{
+    position: relative;
+    overflow: hidden;
+    width: 275px;
+    height: 250px;
+}
+
+.auto-article::before,
+.auto-article::after
+{
+    content: '';
+    height: 35px;
+    position: absolute;
+    right: 0;
+    left: 0;
+}
+
+.auto-article::before
+{
+    background: linear-gradient(to top, rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1));
+    top: 35px;
+}
+
+.auto-article::after
+{
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1));
+    bottom: 0;
 }
 
 .auto span
 {
     margin-left: 10px;
+}
+
+label
+{
+    cursor: pointer;
+}
+
+input[type='checkbox'],
+input[type='radio'],
+input[id='show-settings']:not(:checked) ~ main .settings,
+input[id='show-visited']:checked ~ main .column-1 article:first-child,
+input[id='show-humor']:checked ~ main .column-1 article:last-child,
+input[id='show-tv']:checked ~ main .column-2 article:first-child,
+input[id='show-auto']:checked ~ main .column-2 article:last-child,
+input[id='show-weather']:checked ~ main .column-3 article:first-child,
+input[id='show-auto2']:checked ~ main .column-3 article:nth-child(2),
+input[id='show-map']:checked ~ main .column-3 article:nth-child(3),
+input[id='show-aphisha']:checked ~ main .column-3 article:last-child
+{
+    display: none;
+}
+
+.city,
+label[for='show-settings'],
+.settings
+{
+    display: inline-block;
+    position: absolute;
+    top: 15px;
+}
+
+.city
+{
+    left: 50px;
+}
+
+label[for='show-settings']
+{
+    right: 115px;
+}
+
+.settings
+{
+    top: 35px;
+    right: 50px;
+    border: 1px solid black;
+}
+
+.settings label::before
+{
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+}
+
+.settings
+{
+    padding: 0;
+    background: white;
+}
+
+.settings label
+{
+    display: block;
+    padding: 10px;
+}
+
+.settings label:hover
+{
+    background-color: #fc0;
+}
+
+input[id='show-visited']:checked ~ main label[for='show-visited']::before,
+input[id='show-tv']:checked ~ main label[for='show-tv']::before,
+input[id='show-humor']:checked ~ main label[for='show-humor']::before,
+input[id='show-auto']:checked ~ main label[for='show-auto']::before,
+input[id='show-weather']:checked ~ main label[for='show-weather']::before,
+input[id='show-auto2']:checked ~ main label[for='show-auto2']::before,
+input[id='show-map']:checked ~ main label[for='show-map']::before,
+input[id='show-aphisha']:checked ~ main label[for='show-aphisha']::before
+{
+    background: url('checkbox.png');
+    background-size: 16px;
+}
+
+input[id='show-visited']:checked ~ input[id='show-humor']:checked ~ main
+{
+    grid-template-areas: 'q n n d i' 'l s s s e' 'z b b b e' 'z t w f e';
+}
+
+input[id='show-visited']:checked ~ input[id='show-humor']:checked ~ input[
+id='show-tv']:checked ~ input[id='show-auto']:checked ~ main
+{
+    grid-template-areas: 'q n n d i' 'l s s s e' 'z b b b e' 'z w f f e';
+}
+
+input[id='show-tv']:checked ~ input[id='show-auto']:checked ~ main
+{
+    grid-template-areas: 'q n n d i' 'l s s s e' 'z b b b e' 'z v w f e';
+}
+
+input[id='humor-1']:checked ~ main label[for^='humor']:not([for='humor-2']),
+input[id='humor-2']:checked ~ main label[for^='humor']:not([for='humor-3']),
+input[id='humor-3']:checked ~ main label[for^='humor']:not([for='humor-4']),
+input[id='humor-4']:checked ~ main label[for^='humor']:not([for='humor-5']),
+input[id='humor-5']:checked ~ main label[for^='humor']:not([for='humor-1']),
+input[id='humor-1']:checked ~ main .humor-article span:not(:nth-of-type(1)),
+input[id='humor-2']:checked ~ main .humor-article span:not(:nth-of-type(2)),
+input[id='humor-3']:checked ~ main .humor-article span:not(:nth-of-type(3)),
+input[id='humor-4']:checked ~ main .humor-article span:not(:nth-of-type(4)),
+input[id='humor-5']:checked ~ main .humor-article span:not(:nth-of-type(5))
+{
+    display: none;
+}
+
+.humor-article span
+{
+    display: block;
 }
