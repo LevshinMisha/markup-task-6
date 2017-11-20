@@ -1,32 +1,35 @@
 body
 {
     margin: 0;
+    font: 81.25% Arial, Helvetica, sans-serif;
+}
+
+li
+{
+    margin-bottom: 10px;
 }
 
 main
 {
     display: grid;
-    width: 1400px;
-    grid-template-areas: 'q n n d i' 'l s s s e' 'z b b b e' 'z v t w e';
-    grid-template-columns: 175px 350px 350px 350px 175px;
-    margin: auto;
+    width: 1150px;
+    grid-template-areas: 'q n n n d i' 'l f s s s e' 'z b b b b e'
+        'z v v t w e';
+    grid-template-columns: 150px 150px 150px 300px 300px 150px;
+    margin: 50px auto 0;
 }
 
 .logo
 {
     grid-area: l;
     padding: 0;
+    position: relative;
 }
 
-.logo h1
+.logo img
 {
-    margin: 25px 0;
-    font-size: 50px;
-}
-
-.logo h1:first-letter
-{
-    color: red;
+    position: absolute;
+    right: 0;
 }
 
 .news
@@ -44,7 +47,8 @@ main
 .drive > a,
 section[class*='column'] article > a:first-child
 {
-    font-size: 140%;
+    font-size: 138.5%;
+    font-weight: 400;
     margin: 5px 0;
 }
 
@@ -56,7 +60,8 @@ section[class*='column'] article > a:first-child
 
 .search
 {
-    grid-area: s;
+    grid-column-end: s;
+    grid-column-start: f;
 }
 
 .banner
@@ -87,14 +92,14 @@ section
 
 .link
 {
-    color: rgba(0, 0, 255, 1);
+    color: #0054b9;
     padding-right: 10px;
     display: inline-block;
 }
 
 .news > .link + .link
 {
-    color: rgba(0, 0, 255, .5);
+    color: #6da2e1;
 }
 
 a
@@ -116,7 +121,7 @@ a:hover
 .column-3 > :last-child,
 .auto span
 {
-    color: grey;
+    color: #999;
 }
 
 .money
@@ -147,7 +152,7 @@ figure img
 
 .search input
 {
-    height: 30px;
+    height: 36px;
     outline: none;
     padding-left: 5px;
     margin: 10px 0;
@@ -156,7 +161,7 @@ figure img
 .search button
 {
     border: 0;
-    height: 30px;
+    height: 36px;
     box-sizing: border-box;
     display: inline-block;
     background-color: #fc0;
@@ -164,6 +169,8 @@ figure img
     margin-left: -4px;
     cursor: pointer;
     outline: none;
+    font-size: 16px;
+    position: relative;
 }
 
 .search input,
@@ -179,9 +186,11 @@ figure img
     margin: 5px 0;
 }
 
-.visited :first-child
+.visited :first-child,
+.money a,
+.column-3 article:nth-child(3) a:not(:first-child)
 {
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .small-img
@@ -192,7 +201,7 @@ figure img
 
 section article
 {
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
 .auto
@@ -224,7 +233,7 @@ section article
 {
     background: linear-gradient(to top, rgba(255, 255, 255, 0),
     rgba(255, 255, 255, 1));
-    top: 35px;
+    top: 30px;
 }
 
 .auto-article::after
@@ -283,6 +292,7 @@ label[for='show-settings']
     top: 35px;
     right: 50px;
     border: 1px solid black;
+    z-index: 1;
 }
 
 .settings label::before
@@ -327,18 +337,21 @@ input[id='show-aphisha']:checked ~ main label[for='show-aphisha']::before
 
 input[id='show-visited']:checked ~ input[id='show-humor']:checked ~ main
 {
-    grid-template-areas: 'q n n d i' 'l s s s e' 'z b b b e' 'z t w f e';
+    grid-template-areas: 'q n n n d i' 'l f s s s e' 'z b b b b e'
+        'z t t w x e';
 }
 
 input[id='show-visited']:checked ~ input[id='show-humor']:checked ~ input[
 id='show-tv']:checked ~ input[id='show-auto']:checked ~ main
 {
-    grid-template-areas: 'q n n d i' 'l s s s e' 'z b b b e' 'z w f f e';
+    grid-template-areas: 'q n n n d i' 'l f s s s e' 'z b b b b e'
+        'z w w x x e';
 }
 
 input[id='show-tv']:checked ~ input[id='show-auto']:checked ~ main
 {
-    grid-template-areas: 'q n n d i' 'l s s s e' 'z b b b e' 'z v w f e';
+    grid-template-areas: 'q n n n d i' 'l f s s s e' 'z b b b b e'
+        'z v v w x e';
 }
 
 input[id='humor-1']:checked ~ main label[for^='humor']:not([for='humor-2']),
@@ -358,4 +371,77 @@ input[id='humor-5']:checked ~ main .humor-article span:not(:nth-of-type(5))
 .humor-article span
 {
     display: block;
+}
+
+@media (max-width: 1200px)
+{
+    .search
+    {
+        grid-area: s;
+    }
+
+    .search input
+    {
+        width: 88%;
+    }
+
+    .logo
+    {
+        grid-area: f;
+    }
+
+    main
+    {
+        width: 900px;
+        grid-template-columns: 0 150px 150px 300px 300px 0;
+    }
+}
+
+.tv-online
+{
+    font-size: 14px;
+    letter-spacing: .3px;
+    border-radius: 5px;
+    background-clip: padding-box;
+    background-image: linear-gradient(to right,#00a3fa,#716ef8);
+    color: white;
+    padding: 3px;
+    padding-right: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.tv-online a
+{
+    color: white;
+}
+
+.search button::after
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -28px;
+    border: 18px solid transparent;
+    border-left: 10px solid #fc0;
+}
+
+.tv-online::after
+{
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 0;
+    border: 6px solid transparent;
+    border-left: 8px solid white;
+}
+
+.tv-online a:hover
+{
+    color: white !important;
+}
+
+.tv-online:hover
+{
+    transform: scale(1.2, 1.2);
 }
