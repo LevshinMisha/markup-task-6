@@ -45,7 +45,8 @@ main
 
 .news > a,
 .drive > a,
-section[class*='column'] article > a:first-child
+section[class*='column'] article > a:first-child,
+.column-3 article > a:nth-child(2)
 {
     font-size: 138.5%;
     font-weight: 400;
@@ -152,33 +153,53 @@ figure img
 
 .search input
 {
-    height: 36px;
     outline: none;
-    padding-left: 5px;
-    margin: 10px 0;
+    border: none;
+    width: 80%;
+    height: 94%;
+    padding: 0 10px;
 }
 
 .search button
 {
     border: 0;
-    height: 36px;
     box-sizing: border-box;
     display: inline-block;
     background-color: #fc0;
-    width: 75px;
+
     margin-left: -4px;
     cursor: pointer;
     outline: none;
     font-size: 16px;
     position: relative;
+    height: 100%;
 }
 
-.search input,
+.search-input,
 .banner aside img
 {
     width: 90%;
     border: 2px solid #fc0;
     box-sizing: border-box;
+}
+
+.search-button,
+.search-input
+{
+    height: 36px;
+    display: table-cell;
+}
+
+.search-input
+{
+    width: 90%;
+}
+
+.search-container
+{
+    display: table;
+    width: 100%;
+    margin: 10px 0;
 }
 
 .visited
@@ -193,6 +214,12 @@ figure img
     font-weight: 700;
 }
 
+.column-3 article:nth-child(3) a:not(:first-child):not(:last-child)
+{
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
 .small-img
 {
     width: 16px;
@@ -201,7 +228,8 @@ figure img
 
 section article
 {
-    margin-bottom: 22px;
+    margin-bottom: 20px;
+    line-height: 1.5;
 }
 
 .auto
@@ -380,7 +408,7 @@ input[id='humor-5']:checked ~ main .humor-article span:not(:nth-of-type(5))
         grid-area: s;
     }
 
-    .search input
+    .search-input
     {
         width: 88%;
     }
@@ -444,4 +472,25 @@ input[id='humor-5']:checked ~ main .humor-article span:not(:nth-of-type(5))
 .tv-online:hover
 {
     transform: scale(1.2, 1.2);
+}
+
+.column-3 article > a:nth-child(2)
+{
+    font-size: 2;
+}
+
+.tv
+{
+    position: relative;
+}
+
+.tv div
+{
+    display: inline-block;
+    margin-left: 40px;
+}
+
+.tv span
+{
+    position: absolute;
 }
